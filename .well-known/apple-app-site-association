@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["X593LCYK54.com.erekstudio.pdfprivio"],
+        "components": [
+          {
+            "/": "/pdfprivio/share*",
+            "comment": "Privio share extension hand-off — accepts ?tool=sign/redact/merge/ocr/pii query param"
+          }
+        ]
+      }
+    ]
+  }
+}
