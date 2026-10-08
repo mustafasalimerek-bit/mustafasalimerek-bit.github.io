@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erek Studio</title>
+  <meta name="description" content="Apps and games by Mustafa Salim Erek, an independent developer. Find store links, support, privacy pages and contact details.">
+  <link rel="canonical" href="https://mustafasalimerek-bit.github.io/">
+  <meta property="og:title" content="Erek Studio">
+  <meta property="og:description" content="Apps and games by Mustafa Salim Erek, an independent developer. Find store links, support, privacy pages and contact details.">
+  <meta property="og:url" content="https://mustafasalimerek-bit.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f7f4ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#201f1b" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2712%27%20fill%3D%27%23f7f4ed%27%2F%3E%3Ctext%20x%3D%2732%27%20y%3D%2747%27%20text-anchor%3D%27middle%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2742%27%20font-style%3D%27italic%27%20fill%3D%27%238b4133%27%3E%C2%B6%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f7f4ed;
+      --ink: #292b27;
+      --muted: #62645b;
+      --accent: #8b4133;
+      --rule: #d5d2c7;
+      --control-border: #8a8a7c;
+      --hover: #eae5d9;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #201f1b;
+        --ink: #eee9dc;
+        --muted: #bab7aa;
+        --accent: #e2a08e;
+        --rule: #49483f;
+        --control-border: #858477;
+        --hover: #34332c;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-padding-block: 1.5rem; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+      -webkit-text-size-adjust: 100%;
+    }
+    ::selection { background: var(--ink); color: var(--paper); }
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .25em;
+    }
+    a:hover { color: var(--accent); }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    .page { width: min(100% - 2.5rem, 70rem); margin-inline: auto; }
+    .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .skip-link {
+      position: absolute;
+      inset-block-start: .75rem;
+      inset-inline-start: 1.25rem;
+      z-index: 1;
+      padding: .65rem 1rem;
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-200%);
+    }
+    .skip-link:focus { transform: translateY(0); color: var(--paper); }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-block: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .press-mark { font: italic 1.75rem/1 var(--serif); color: var(--accent); }
+    .site-nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: .875rem;
+      text-decoration: none;
+    }
+    .site-nav a:hover { text-decoration: underline; }
+    .intro { padding-block: 2.5rem 3rem; }
+    h1 {
+      font-size: clamp(3.5rem, 9vw, 6.75rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+    h1 i { font-weight: 400; }
+    .intro-copy { margin-top: 1.75rem; max-width: 28rem; }
+    .intro-copy > p { font-size: 1rem; line-height: 1.8; }
+    .contact { margin-top: 1.25rem; font-style: normal; }
+    .contact-label {
+      display: block;
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .contact a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      max-width: 100%;
+      font-size: .875rem;
+      color: var(--accent);
+    }
+    .catalogue { display: grid; gap: 3.5rem; }
+    .collection { min-width: 0; }
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: .5rem;
+    }
+    .section-heading::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--accent);
+    }
+    h2 { font-size: 2.25rem; line-height: 1.3; font-style: italic; }
+    .app {
+      padding-block: 1.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .app-heading {
+      display: grid;
+      grid-template-columns: 3.5rem minmax(0, 1fr);
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: .75rem;
+    }
+    .app-icon {
+      display: block;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 23%;
+      box-shadow: 0 0 0 1px var(--rule);
+    }
+    h3 { font-size: 1.625rem; line-height: 1.2; letter-spacing: -.015em; }
+    .subtitle { margin-top: .25rem; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+    .app-links { margin-left: 4.5rem; }
+    .legal-links, .store-links { display: flex; flex-wrap: wrap; align-items: center; }
+    .legal-links { gap: 0 1.25rem; }
+    .legal-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: .8125rem;
+    }
+    .store-links { gap: 0 1.25rem; }
+    .store-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .store-links a:hover { text-decoration: underline; text-underline-offset: .25em; }
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem 2rem;
+      margin-top: 3.5rem;
+      padding-block: 1.5rem 2.5rem;
+      border-top: 1px solid var(--accent);
+      color: var(--muted);
+      font-size: .8125rem;
+    }
+    .page-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+
+    @media (min-width: 40rem) {
+      .page { width: min(100% - 5rem, 70rem); }
+      .masthead { padding-block: 2rem; }
+      .site-nav ul { gap: 2rem; }
+      .intro { padding-block: 3.5rem 4rem; }
+      .app-heading { grid-template-columns: 4rem minmax(0, 1fr); gap: 1.25rem; }
+      .app-icon { width: 4rem; height: 4rem; }
+      .app-links { margin-left: 5.25rem; }
+      .app { padding-block: 2rem; }
+      h3 { font-size: 1.875rem; }
+    }
+    @media (min-width: 60rem) {
+      .intro { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 5rem; }
+      h1 i { display: block; }
+      .intro-copy { margin-top: 0; }
+      .intro-copy > p { font-size: 1.0625rem; }
+      .catalogue { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 5rem; }
+      .page-footer { margin-top: 4.5rem; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to apps and games</a>
+  <div class="page">
+    <header>
+      <div class="masthead">
+        <span class="press-mark" aria-hidden="true">¶</span>
+        <nav class="site-nav" aria-label="Page navigation">
+          <ul>
+            <li><a href="#apps">Apps</a></li>
+            <li><a href="#games">Games</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="intro">
+        <h1>Erek <i>Studio</i></h1>
+        <div class="intro-copy">
+          <p>Hello — I’m Mustafa Salim Erek, and I make these apps and games on my own. Each app’s privacy policy is linked under its name; for help with any of them, write to me.</p>
+          <address class="contact" id="contact">
+            <span class="contact-label">Get in touch</span>
+            <a href="mailto:mustafasalimerek@gmail.com">mustafasalimerek@gmail.com</a>
+          </address>
+        </div>
+      </div>
+    </header>
+
+    <main class="catalogue" id="main" tabindex="-1">
+      <section class="collection" id="apps" aria-labelledby="apps-heading">
+        <div class="section-heading"><h2 id="apps-heading">Apps</h2></div>
+        <article class="app" aria-labelledby="colophon-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/colophon.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="colophon-name">Colophon</h3>
+              <p class="subtitle">Interlinear Bible</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/colophon-privacy/" rel="noopener">Privacy<span class="vh"> – Colophon</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6789892808" rel="noopener">App Store<span class="vh"> – Colophon</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.colophon" rel="noopener">Google Play<span class="vh"> – Colophon</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="daylit-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/daylit.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="daylit-name">Daylit</h3>
+              <p class="subtitle">Honest Daily Planner</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://daylit-privacy.erekstudio.workers.dev/daylit/privacy" rel="noopener">Privacy<span class="vh"> – Daylit</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6778850267" rel="noopener">App Store<span class="vh"> – Daylit</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.aiplanner" rel="noopener">Google Play<span class="vh"> – Daylit</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="evenfall-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/evenfall.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="evenfall-name">Evenfall</h3>
+              <p class="subtitle">Reflective Journal</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://evenfall-privacy.erekstudio.workers.dev/evenfall/privacy" rel="noopener">Privacy<span class="vh"> – Evenfall</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6780204063" rel="noopener">App Store<span class="vh"> – Evenfall</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.dusk" rel="noopener">Google Play<span class="vh"> – Evenfall</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="naqio-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/naqio.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="naqio-name">Naqio</h3>
+              <p class="subtitle">Halal Food Scanner</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/naqio-legal/" rel="noopener">Support<span class="vh"> – Naqio</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/naqio-legal/privacy/" rel="noopener">Privacy<span class="vh"> – Naqio</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6782854289" rel="noopener">App Store<span class="vh"> – Naqio</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.naqio" rel="noopener">Google Play<span class="vh"> – Naqio</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="onseol-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/onseol.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="onseol-name">Onseol</h3>
+              <p class="subtitle">Countdown Widget</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/onseol-privacy/" rel="noopener">Privacy &amp; support<span class="vh"> – Onseol</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6782953468" rel="noopener">App Store<span class="vh"> – Onseol</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.dday" rel="noopener">Google Play<span class="vh"> – Onseol</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="privio-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/privio.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="privio-name">Privio</h3>
+              <p class="subtitle">PDF Scanner &amp; Editor</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/pdfprivio-legal/support/" rel="noopener">Support<span class="vh"> – Privio</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/pdfprivio-legal/privacy/" rel="noopener">Privacy<span class="vh"> – Privio</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/pdfprivio-legal/terms/" rel="noopener">Terms<span class="vh"> – Privio</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6769985472" rel="noopener">App Store<span class="vh"> – Privio</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.pdfprivio" rel="noopener">Google Play<span class="vh"> – Privio</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="squeezly-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/squeezly.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="squeezly-name">Squeezly</h3>
+              <p class="subtitle">Compressor &amp; Cleaner</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/squeezly-legal/privacy_en.html" rel="noopener">Privacy<span class="vh"> – Squeezly</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/squeezly-legal/terms_en.html" rel="noopener">Terms<span class="vh"> – Squeezly</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6766046501" rel="noopener">App Store<span class="vh"> – Squeezly</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.squeezly.app" rel="noopener">Google Play<span class="vh"> – Squeezly</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="sync-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/sync.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="sync-name">SYNC</h3>
+              <p class="subtitle">The Daily Question</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/sync-legal/" rel="noopener">Support<span class="vh"> – SYNC</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/sync-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – SYNC</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/sync-legal/terms.html" rel="noopener">Terms<span class="vh"> – SYNC</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6799400522" rel="noopener">App Store<span class="vh"> – SYNC</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.sync" rel="noopener">Google Play<span class="vh"> – SYNC</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="waqt-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/waqt.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="waqt-name">Waqt</h3>
+              <p class="subtitle">Prayer Times &amp; Adhan</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/waqt-legal/" rel="noopener">Support<span class="vh"> – Waqt</span></a></li>
+              <li><a href="https://gist.github.com/mustafasalimerek-bit/a534b01f71b861a967e24335285dbecb" rel="noopener">Privacy<span class="vh"> – Waqt</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6793498575" rel="noopener">App Store<span class="vh"> – Waqt</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.waqt" rel="noopener">Google Play<span class="vh"> – Waqt</span></a></li>
+            </ul>
+          </div>
+        </article>
+      </section>
+      <section class="collection" id="games" aria-labelledby="games-heading">
+        <div class="section-heading"><h2 id="games-heading">Games</h2></div>
+        <article class="app" aria-labelledby="doltap-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/doltap.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="doltap-name">Doltap</h3>
+              <p class="subtitle">Zen Stack Tower</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/doltap-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Doltap</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6790157885" rel="noopener">App Store<span class="vh"> – Doltap</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.doltap" rel="noopener">Google Play<span class="vh"> – Doltap</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="kartenwerk-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/kartenwerk.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="kartenwerk-name">Kartenwerk</h3>
+              <p class="subtitle">Solitaire FreeCell</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/kartenwerk-legal/" rel="noopener">Support<span class="vh"> – Kartenwerk</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/kartenwerk-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Kartenwerk</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6790163261" rel="noopener">App Store<span class="vh"> – Kartenwerk</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.kartenwerk" rel="noopener">Google Play<span class="vh"> – Kartenwerk</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="micron-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/micron.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="micron-name">Micron</h3>
+              <p class="subtitle">Measure by Eye</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/micron-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Micron</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/micron-legal/terms.html" rel="noopener">Terms<span class="vh"> – Micron</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/micron-legal/delete.html" rel="noopener">Delete your data<span class="vh"> – Micron</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6798277777" rel="noopener">App Store<span class="vh"> – Micron</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.micron" rel="noopener">Google Play<span class="vh"> – Micron</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="orbion-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/orbion.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="orbion-name">Orbion</h3>
+              <p class="subtitle">Orbit Jump Puzzle</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://orbion-legal.erekstudio.workers.dev/support" rel="noopener">Support<span class="vh"> – Orbion</span></a></li>
+              <li><a href="https://orbion-legal.erekstudio.workers.dev/privacy" rel="noopener">Privacy<span class="vh"> – Orbion</span></a></li>
+              <li><a href="https://orbion-legal.erekstudio.workers.dev/terms" rel="noopener">Terms<span class="vh"> – Orbion</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6799364072" rel="noopener">App Store<span class="vh"> – Orbion</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="pofu-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/pofu.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="pofu-name">Pofu</h3>
+              <p class="subtitle">Color Drop Puzzle</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/pofu-legal/support.html" rel="noopener">Support<span class="vh"> – Pofu</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/pofu-legal/" rel="noopener">Privacy<span class="vh"> – Pofu</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6796339317" rel="noopener">App Store<span class="vh"> – Pofu</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="roastandrich-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/roastandrich.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="roastandrich-name">Roast &amp; Rich</h3>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/roastandrich-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Roast &amp; Rich</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/roastandrich-legal/terms.html" rel="noopener">Terms<span class="vh"> – Roast &amp; Rich</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6794006254" rel="noopener">App Store<span class="vh"> – Roast &amp; Rich</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.roastandrich" rel="noopener">Google Play<span class="vh"> – Roast &amp; Rich</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="saku-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/saku.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="saku-name">Saku</h3>
+              <p class="subtitle">Nonogram Picture Cross</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/saku-legal/support.html" rel="noopener">Support<span class="vh"> – Saku</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/saku-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Saku</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6789562546" rel="noopener">App Store<span class="vh"> – Saku</span></a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.erekstudio.saku" rel="noopener">Google Play<span class="vh"> – Saku</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="tapanic-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/tapanic.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="tapanic-name">Tapanic</h3>
+              <p class="subtitle">Reflex Tap Game</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/blockpanic-legal/support.html" rel="noopener">Support<span class="vh"> – Tapanic</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/blockpanic-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Tapanic</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6797113191" rel="noopener">App Store<span class="vh"> – Tapanic</span></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="app" aria-labelledby="verithe-name">
+          <div class="app-heading">
+            <img class="app-icon" src="icons/verithe.jpg" width="192" height="192" loading="lazy" decoding="async" alt="">
+            <div>
+              <h3 id="verithe-name">Verithe</h3>
+              <p class="subtitle">Planet Sort Puzzle</p>
+            </div>
+          </div>
+          <div class="app-links">
+            <ul class="legal-links">
+              <li><a href="https://mustafasalimerek-bit.github.io/verithe-legal/support.html" rel="noopener">Support<span class="vh"> – Verithe</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/verithe-legal/privacy.html" rel="noopener">Privacy<span class="vh"> – Verithe</span></a></li>
+              <li><a href="https://mustafasalimerek-bit.github.io/verithe-legal/terms.html" rel="noopener">Terms<span class="vh"> – Verithe</span></a></li>
+            </ul>
+            <ul class="store-links">
+              <li><a href="https://apps.apple.com/app/id6800363058" rel="noopener">App Store<span class="vh"> – Verithe</span></a></li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Made by Mustafa Salim Erek.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+  </div>
+</body>
+</html>
